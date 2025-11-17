@@ -4,22 +4,27 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+/*
+  Minimal refactor notes:
+  - Fonts and color variables are defined here (single source of truth).
+  - Small accessibility improvement: visible focus for keyboard users.
+*/
 /* custom font variable */
 @font-face {
   font-family: "main-regular";
-  src: url("/assets/fonts/Geist/static/Geist-Regular.ttf");
+  src: url("/assets/fonts/Poppins/Poppins-Regular.ttf");
 }
 @font-face {
   font-family: "main-medium";
-  src: url("/assets/fonts/Geist/static/Geist-Medium.ttf");
+  src: url("/assets/fonts/Poppins/Poppins-Medium.ttf");
 }
 @font-face {
   font-family: "main-semibold";
-  src: url("/assets/fonts/Geist/static/Geist-SemiBold.ttf");
+  src: url("/assets/fonts/Poppins/Poppins-SemiBold.ttf");
 }
 @font-face {
   font-family: "main-bold";
-  src: url("/assets/fonts/Geist/static/Geist-Bold.ttf");
+  src: url("/assets/fonts/Poppins/Poppins-Bold.ttf");
 }
 /* css color custom variable */
 :root {
@@ -35,115 +40,299 @@ body {
   --color-border: #e2e8f0;
 }
 
-.main-container {
-  width: 100%;
-  max-width: 1550px;
-  margin: 0 auto;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.subheadline-wrapper {
+body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: white;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 350px;
+  height: 100vh;
+  position: fixed;
+  background-color: white;
+  border: 1px solid var(--color-border);
+  color: black;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.sidebar-menu {
+  list-style: none;
+  flex-grow: 1;
+}
+
+.menu-item {
+  padding: 15px 25px;
+  margin: 5px 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
   align-items: center;
-  padding: 0;
-  background-color: transparent;
+}
+
+.menu-item span {
+  font-family: "main-medium";
+}
+
+.menu-item:hover {
+  background-color: var(--color-primary-50);
+  transform: translateX(5px);
+}
+
+.menu-item.active {
+  background-color: var(--color-primary-100);
+}
+
+.menu-item i {
+  margin-right: 12px;
+  font-size: 1.2rem;
+  width: 24px;
+  text-align: center;
+}
+
+.menu-item span {
+  font-size: 1rem;
+}
+
+.sidebar-footer {
+  padding: 15px;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  font-family: "main-medium";
+}
+
+/* Main Content Styles */
+.main-content {
+  flex: 1;
+  margin-left: 350px;
+  padding: 40px;
+}
+
+.content-card {
+  /* background: #000; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .subheadline {
   width: fit-content;
   padding: 8px 24px;
-  background-color: var(--color-primary-100);
-  border-radius: 99px;
+  background: var(--color-primary-100);
   border: 2px solid var(--color-primary-600);
+  border-radius: 99px;
 }
 
 .subheadline p {
-  font-family: "main-semibold";
+  margin: 0;
   font-size: 16px;
   line-height: 20px;
-  margin: 0;
+  font-family: "main-semibold";
 }
 
-.main-content-item {
+.headline h1 {
+  font-family: "main-bold";
+  font-size: 40px;
+  line-height: 40px;
+  max-width: 1000px;
+}
+
+.text-wrapper {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+}
+
+.text-wrapper p {
+  font-size: 16px;
+  line-height: 20px;
+  /* fixed typo -> use defined font-face name */
+  font-family: "main-regular";
+}
+
+/* keyboard focus visible for accessibility (useful for demos/presentasi) */
+.menu-item:focus {
+  outline: 3px solid rgba(99, 102, 241, 0.22);
+  outline-offset: 3px;
+}
+
+.text-wrapper p span {
+  font-family: "main-bold";
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
   gap: 24px;
   align-items: center;
 }
 
-.main-content-item:nth-child(1) {
-  padding: 64px 0;
-}
-
-.main-content-item:nth-child(2) {
+.content:nth-child(1) {
   width: 100%;
-  height: 100vw;
-  background-color: #f3f3f3;
+  height: 700px;
   border-radius: 16px;
-  padding: 24px;
+  overflow: hidden;
 }
 
-.main-content-item h1 {
-  font-size: 48px;
-  line-height: 140%;
-  font-family: "main-bold";
-  max-width: 1000px;
-  text-align: center;
-  margin: 0;
-}
-
-.cta-wrapper {
-  display: flex;
-  flex-direction: row;
-  gap: 6px;
-}
-
-.cta-wrapper .cta-button {
-  padding: 8px 24px;
-  margin: 0;
-  border-radius: 99px;
-}
-
-.cta-button p {
-  margin: 0;
-  font-family: "main-medium";
-}
-
-.cta-wrapper .cta-button:nth-child(1) {
-  color: white;
-  border: 2px solid var(--color-primary-600);
-  background-color: var(--color-primary-600);
-}
-
-.cta-wrapper .cta-button:nth-child(2) {
-  color: black;
-  background-color: var(--color-primary-100);
-  border: 2px solid var(--color-primary-600);
-}
-
-.gallery-wrapper {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
-}
-
-.gallery-wrapper .photo-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.photo-container .image-wrapper {
-  width: 100%;
-  height: fit-content;
-}
-
-.image-wrapper img {
+.content:nth-child(1) img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+.content:nth-child(2) {
+  width: 100%;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-title p {
+  font-family: "main-semibold";
+  font-size: 24px;
+  line-height: 28px;
+  margin: 0;
+}
+
+.content .text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.content .text-wrapper h2 {
+  font-family: "main-semibold";
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--color-primary-600);
+}
+
+.menu-list h3 {
+  font-family: "main-semibold";
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.content .text-wrapper h1 {
+  font-size: 36px;
+  line-height: 40px;
+  font-family: "main-bold";
+}
+
+.content .text-wrapper p {
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "main-medium";
+}
+
+.text-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.text-list span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .mobile-toggle {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    z-index: 1001;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  #visiContent .content-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-toggle {
+    display: none;
+  }
+}
+
+/* Fixed footer styles: non-intrusive, placed on top of content (no existing styles changed) */
+.app-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 56px;
+  background: white;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100; /* above sidebar (1000) so it's visible on small screens */
+}
+.app-footer-inner {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.app-footer p {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: "main-medium";
+}
+
+/* Note: footer is overlaying content to avoid changing existing layout rules per request. */

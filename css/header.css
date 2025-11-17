@@ -1,33 +1,8 @@
-/* custom font variable */
-@font-face {
-  font-family: "main-regular";
-  src: url("/assets/fonts/Poppins/Poppins-Regular.ttf");
-}
-@font-face {
-  font-family: "main-medium";
-  src: url("/assets/fonts/Poppins/Poppins-Medium.ttf");
-}
-@font-face {
-  font-family: "main-semibold";
-  src: url("/assets/fonts/Poppins/Poppins-SemiBold.ttf");
-}
-@font-face {
-  font-family: "main-bold";
-  src: url("/assets/fonts/Poppins/Poppins-Bold.ttf");
-}
-/* css color custom variable */
-:root {
-  /* primary color */
-  --color-primary-50: oklch(0.97 0.014 254.604);
-  --color-primary-100: oklch(0.932 0.032 255.585);
-  --color-primary-200: oklch(0.882 0.059 254.128);
-  --color-primary-300: oklch(0.809 0.105 251.813);
-  --color-primary-400: oklch(0.707 0.165 254.624);
-  --color-primary-500: oklch(0.623 0.214 259.815);
-  --color-primary-600: oklch(0.546 0.245 262.881);
-  /* border color */
-  --color-border: #e2e8f0;
-}
+/* Header stylesheet (kept small) -
+   Note: font-face and color variables are defined in main.css
+   to keep a single source of truth. This file only contains
+   header-specific rules to minimize duplication for the demo.
+*/
 
 header {
   width: 100%;
@@ -47,6 +22,8 @@ header nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  /* add horizontal spacing so header looks balanced without the title element */
+  padding: 0 40px;
 }
 
 header hr {

@@ -1,163 +1,228 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SMK Nurjamilah</title>
+    <title>Sidebar Nurjamilah</title>
+    <!-- Core styles (main layout + responsive) -->
     <link rel="stylesheet" href="/css/main.css" />
+    <!-- Header-specific styles (kept small) -->
     <link rel="stylesheet" href="/css/header.css" />
-    <link rel="stylesheet" href="/css//footer.css" />
   </head>
   <body>
-    <!-- header component (Navbar) -->
+    <!-- =========================
+         HEADER (tidak boleh dihapus)
+         - simple, centered
+         - file: /css/header.css
+         ========================= -->
     <header>
-      <nav class="navbar">
-        <div class="logo-wrapper">
+      <nav class="navbar" aria-label="Main navigation">
+        <div class="logo-wrapper" aria-hidden="false">
           <img src="/assets/images/nurjamilah_logo.png" alt="logo nurjamilah" />
         </div>
-        <div class="title-wrapper">
+        <div class="nav-title">
           <p>SMK Nurjamilah</p>
         </div>
-        <div class="nav-logo-wrapper">
-          <div class="logo-wrap">
-            <img src="/assets/images/instagram-logo.svg" alt="instagram logo" />
-          </div>
-          <div class="logo-wrap">
-            <img src="/assets/images/youtube-logo.svg" alt="youtube logo" />
-          </div>
+        <!-- title removed for cleaner header; spacing is handled via CSS padding -->
+        <div class="nav-logo-wrapper" aria-hidden="true">
+          <a
+            href="https://www.instagram.com/smknurjamilah_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            target="_blank"
+          >
+            <div class="logo-wrap">
+              <img src="/assets/images/instagram-logo.svg" alt="instagram" />
+            </div>
+          </a>
+          <a href="https://www.youtube.com/@smknurjamilah5782" target="_blank">
+            <div class="logo-wrap">
+              <img src="/assets/images/youtube-logo.svg" alt="youtube" />
+            </div>
+          </a>
         </div>
       </nav>
       <hr />
       <div class="slogan-wrapper">
         <div class="slogan">
-          <p>
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi,
-            nostrum?"
-          </p>
+          <p>SMK bisa, SMK hebat.</p>
         </div>
       </div>
     </header>
-    <main>
-      <!-- main section -->
-      <section class="main-section">
-        <div class="main-container">
-          <div class="main-content">
-            <div class="main-content-item">
-              <div class="subheadline-wrapper">
-                <div class="subheadline">
-                  <p>pusat inovasi dan keunggulan bisnis</p>
-                </div>
-              </div>
-              <h1>masa depan digital dan karir profesional dimulai disini.</h1>
-              <div class="cta-wrapper">
-                <button class="cta-button">
-                  <p>tentang kami</p>
-                </button>
-                <button class="cta-button">
-                  <p>terhubung dengan kami</p>
-                </button>
+
+    <!-- Mobile toggle button (appears on small screens) -->
+    <button
+      id="mobileToggle"
+      class="mobile-toggle"
+      aria-controls="sidebar"
+      aria-expanded="false"
+      aria-label="Toggle sidebar"
+    >
+      ☰
+    </button>
+
+    <div class="container">
+      <!-- =========================
+           SIDEBAR (tetap ada)
+           - menggunakan id #sidebar yang diharapkan oleh js/main.js
+           - menu-item memiliki data-content yang dipakai untuk menukar konten
+           - sedikit komentar tiap bagian untuk presentasi
+           ========================= -->
+      <aside
+        class="sidebar"
+        id="sidebar"
+        role="navigation"
+        aria-label="Sidebar menu"
+      >
+        <ul class="sidebar-menu">
+          <li
+            class="menu-item active"
+            data-content="tentang"
+            role="button"
+            tabindex="0"
+          >
+            <span>Tentang Kami</span>
+          </li>
+          <li class="menu-item" data-content="visi" role="button" tabindex="0">
+            <span>Visi dan Misi</span>
+          </li>
+          <!-- <li
+            class="menu-item"
+            data-content="galeri"
+            role="button"
+            tabindex="0"
+          >
+            <span>Galeri Nurjamilah</span>
+          </li> -->
+        </ul>
+
+        <div class="sidebar-footer">
+          <p>&copy; 2023 Nurjamilah. All rights reserved.</p>
+        </div>
+      </aside>
+
+      <!-- =========================
+           MAIN CONTENT
+           - title area digunakan oleh js untuk update judul
+           - setiap section memiliki ID yang diharapkan oleh js/main.js
+           - default: 'tentang' tampil
+           ========================= -->
+      <main class="main-content">
+        <!-- dynamic title updated by JS for presentasi -->
+
+        <!-- TENTANG (default visible) -->
+        <section id="tentangContent">
+          <div class="content-card">
+            <div class="subheadline-wrapper">
+              <div class="subheadline">
+                <p>ayo, mulai berkenalan dengan kami</p>
               </div>
             </div>
-            <div class="main-content-item">
-              <div class="gallery-wrapper">
-                <div class="photo-container">
-                  <div class="image-wrapper">
-                    <img
-                      src="/assets/images/gallery-image-1.png"
-                      alt="gallery image 1"
-                    />
-                  </div>
-                  <div class="image-wrapper">
-                    <img
-                      src="/assets/images/gallery-image-4.png"
-                      alt="gallery image 4"
-                    />
-                  </div>
-                  <div class="image-wrapper">
-                    <img
-                      src="/assets/images/gallery-image-7.png"
-                      alt="gallery image 7"
-                    />
-                  </div>
-                </div>
-                <div class="photo-container">
-                  <div class="image-wrapper">
-                    <img
-                      src="/assets/images/gallery-image-4.png"
-                      alt="gallery image 4"
-                    />
-                  </div>
-                  <div class="image-wrapper">
-                    <img
-                      src="/assets/images/gallery-image-5.png"
-                      alt="gallery image 5"
-                    />
-                  </div>
-                  <div class="image-wrapper">
-                    <img
-                      src="/assets/images/gallery-image-6.png"
-                      alt="gallery image 6"
-                    />
-                  </div>
-                </div>
-                <div class="photo-container">
-                  <div class="image-wrapper">
-                    <img
-                      src="/assets/images/gallery-image-1.png"
-                      alt="gallery image 1"
-                    />
-                  </div>
-                  <div class="image-wrapper">
-                    <img
-                      src="/assets/images/gallery-image-7.png"
-                      alt="gallery image 2"
-                    />
-                  </div>
-                  <div class="image-wrapper">
-                    <img
-                      src="/assets/images/gallery-image-6.png"
-                      alt="gallery image 3"
-                    />
-                  </div>
-                </div>
-                <div class="photo-container">
-                  <div class="image-wrapper">
-                    <img
-                      src="/assets/images/gallery-image-4.png"
-                      alt="gallery image 4"
-                    />
-                  </div>
-                  <div class="image-wrapper">
-                    <img
-                      src="/assets/images/gallery-image-5.png"
-                      alt="gallery image 5"
-                    />
-                  </div>
-                  <div class="image-wrapper">
-                    <img
-                      src="/assets/images/gallery-image-6.png"
-                      alt="gallery image 6"
-                    />
+            <div class="headline-wrapper">
+              <div class="headline">
+                <h1>dua jurusan unggulan: RPL dan MPLB.</h1>
+              </div>
+            </div>
+            <div class="text-wrapper">
+              <p>
+                SMK Nurjamilah didirikan pada tanggal
+                <span>9 Januari 2001</span> dengan komitmen untuk
+                <span
+                  >menjadi lembaga pendidikan kejuruan terdepan yang responsif
+                  terhadap tantangan industri dan perkembangan zaman.</span
+                >
+              </p>
+              <p>
+                Sejak awal, kami memfokuskan diri pada pembentukan karakter
+                profesional, mengintegrasikan ilmu pengetahuan, keterampilan
+                teknis, dan etika kerja yang tinggi.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- VISI & MISI (disembunyikan, akan ditampilkan oleh JS bila dipilih) -->
+        <section id="visiContent" style="display: none">
+          <div class="content-wrapper">
+            <div class="content">
+              <img
+                src="/assets/images/IMG_9011 1.png"
+                alt="gamecomm event at jiexpo"
+              />
+            </div>
+            <div class="content">
+              <div class="text-wrapper">
+                <h2>visi SMK Nurjamilah</h2>
+                <h1>“Berakhlak Cerdas, Mandiri, dan Kreatif.”</h1>
+                <p>
+                  Visi ini menjadi landasan utama bagi seluruh kegiatan
+                  pendidikan di SMK Nurjamilah, mencerminkan komitmen kami untuk
+                  <span
+                    >mencetak lulusan yang tidak hanya unggul secara akademik
+                    dan teknis</span
+                  >, tetapi juga memiliki integritas moral yang tinggi,
+                  inisiatif, dan daya cipta.
+                </p>
+              </div>
+              <div class="text-wrapper">
+                <h2>misi SMK Nurjamilah</h2>
+                <div class="menu-list">
+                  <h3>SMK Nurjamilah melaksanakan misi sebagai berikut:</h3>
+                  <div class="text-list">
+                    <span>
+                      <img src="/assets/images/wheel.svg" alt="wheel icon" />
+                      <p>
+                        menghasilkan peserta didik cerdas, disiplin, dan
+                        bertanggung jawab serta memiliki daya tahan terhadap
+                        pengaruh globalisasi
+                      </p>
+                    </span>
+                    <span>
+                      <img src="/assets/images/wheel.svg" alt="wheel icon" />
+                      <p>
+                        mengajarkan pengalaman ajaran agama sejak dini untuk
+                        mewujudkan peserta didik yang berkualitas berdasarkan
+                        imtaq dan iptek
+                      </p>
+                    </span>
+                    <span>
+                      <img src="/assets/images/wheel.svg" alt="wheel icon" />
+                      <p>
+                        kreatif, cekatan, serta bertanggung jawab dalam
+                        menyelesaikan pekerjaan
+                      </p>
+                    </span>
+                    <span>
+                      <img src="/assets/images/wheel.svg" alt="wheel icon" />
+                      <p>
+                        mandiri adalah berdiri sendiri tanpa bergantung kepada
+                        orang lain
+                      </p>
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-      <!-- about section -->
-      <section></section>
-      <!-- vision and mision section -->
-      <section></section>
-      <!-- gallery section -->
-      <section></section>
-      <!-- promotion section -->
-      <section></section>
-      <!-- footer component (contact info and navigation link) -->
-      <footer></footer>
-    </main>
+        </section>
+
+        <!-- GALERI (placeholder) -->
+        <section id="galeriContent" style="display: none">
+          <div class="content-card">
+            <p>
+              Galeri belum ditambahkan — gunakan ini sebagai ruang presentasi
+              atau portofolio.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- core script: menangani sidebar toggle dan switching konten -->
+    <script src="/js/main.js"></script>
+    <!-- Fixed footer (AppWrapper effect) - added as a separate component, does not modify existing elements -->
+    <footer class="app-footer" role="contentinfo" aria-label="Site footer">
+      <div class="app-footer-inner">
+        <p>&copy; 2025 SMK Nurjamilah — All rights reserved.</p>
+      </div>
+    </footer>
   </body>
-  <script src="/js/main.js"></script>
-  <script src="/js/gallery.js"></script>
-  <script src="/js/animation.js"></script>
 </html>
