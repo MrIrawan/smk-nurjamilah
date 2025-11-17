@@ -12,19 +12,19 @@ body {
 /* custom font variable */
 @font-face {
   font-family: "main-regular";
-  src: url("/assets/fonts/Poppins/Poppins-Regular.ttf");
+  src: url("../assets/fonts/Poppins/Poppins-Regular.ttf");
 }
 @font-face {
   font-family: "main-medium";
-  src: url("/assets/fonts/Poppins/Poppins-Medium.ttf");
+  src: url("../assets/fonts/Poppins/Poppins-Medium.ttf");
 }
 @font-face {
   font-family: "main-semibold";
-  src: url("/assets/fonts/Poppins/Poppins-SemiBold.ttf");
+  src: url("../assets/fonts/Poppins/Poppins-SemiBold.ttf");
 }
 @font-face {
   font-family: "main-bold";
-  src: url("/assets/fonts/Poppins/Poppins-Bold.ttf");
+  src: url("../assets/fonts/Poppins/Poppins-Bold.ttf");
 }
 /* css color custom variable */
 :root {
