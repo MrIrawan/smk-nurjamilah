@@ -24,19 +24,13 @@ body {
 /* css color custom variable */
 :root {
   /* primary color */
-  --color-primary-50: oklch(0.979 0.021 166.113);
-  --color-primary-100: oklch(0.95 0.052 163.051);
-  --color-primary-200: oklch(0.905 0.093 164.15);
-  --color-primary-300: oklch(0.845 0.143 164.978);
-  --color-primary-400: oklch(0.765 0.177 163.223);
-  --color-primary-500: oklch(0.696 0.17 162.48);
-  --color-primary-600: oklch(0.596 0.145 163.225);
-  /* secondary color */
-  --color-secondary-50: oklch(0.984 0.014 180.72);
-  --color-secondary-100: oklch(0.953 0.051 180.801);
-  --color-secondary-200: oklch(0.91 0.096 180.426);
-  --color-secondary-300: oklch(0.855 0.138 181.071);
-  --color-secondary-400: oklch(0.777 0.152 181.912);
-  --color-secondary-500: oklch(0.704 0.14 182.503);
-  --color-secondary-600: oklch(0.6 0.118 184.704);
+  --color-primary-50: oklch(0.97 0.014 254.604);
+  --color-primary-100: oklch(0.932 0.032 255.585);
+  --color-primary-200: oklch(0.882 0.059 254.128);
+  --color-primary-300: oklch(0.809 0.105 251.813);
+  --color-primary-400: oklch(0.707 0.165 254.624);
+  --color-primary-500: oklch(0.623 0.214 259.815);
+  --color-primary-600: oklch(0.546 0.245 262.881);
+  /* border color */
+  --color-border: #e2e8f0;
 }
